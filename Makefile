@@ -15,7 +15,7 @@ INCLUDE		=	includes/
 all		:	$(NAME)
 
 build/%.o	:	srcs/%.c
-	gcc ${CFLAGS} -I ${INCLUDE} -c $< -o $@
+	cc ${CFLAGS} -I ${INCLUDE} -c $< -o $@
 
 build	:
 	mkdir build
