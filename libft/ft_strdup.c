@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/24 12:07:14 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/24 12:12:28 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_printf(const char *format, ...)
+char	*ft_strdup(const char *s)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	char	*dup;
+	size_t	len_s;
 
-	va_start(ap, format);
-	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	len_s = ft_strlen(s);
+	dup = malloc(sizeof(*dup) * (len_s + 1));
+	if (dup == 0)
+		return (0);
+	ft_memcpy(dup, s, sizeof(*dup) * (len_s + 1));
+	return (dup);
 }

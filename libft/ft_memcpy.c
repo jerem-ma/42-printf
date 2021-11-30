@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/22 17:23:56 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 21:06:29 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
+#include <stddef.h>
 
-#include "libft.h"
-
-int	ft_printf(const char *format, ...)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	size_t		i;
+	char		*dest_cur;
+	const char	*src_cur;
 
-	va_start(ap, format);
+	if (!dest && !src)
+		return (0);
+	dest_cur = dest;
+	src_cur = src;
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (i < n)
+	{
+		dest_cur[i] = src_cur[i];
+		i++;
+	}
+	return (dest);
 }

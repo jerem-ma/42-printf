@@ -17,21 +17,27 @@ all		:	$(NAME)
 build/%.o	:	srcs/%.c
 	cc ${CFLAGS} -I ${INCLUDE} -c $< -o $@
 
+libft	:
+	make -C libft/
+
 build	:
 	mkdir build
 
-$(NAME)	:	build build/${OBJS}
-	ar rc ${NAME} ${OBJS}
+$(NAME)	:	build libft build/${OBJS}
+	ar rcl libft/libft.a ${NAME} ${OBJS}
 
 clean	:
 	rm -Rf build/
+	make -C libft/ clean
 
 fclean	:	clean
 	rm -f ${NAME}
+	make -C libft/ fclean
 
 re		:	fclean	${NAME}
+	make -C libft/ re
 
 bonus	:	$(NAME) $(OBJS_BONUS)
 	ar r $(NAME) $(OBJS_BONUS)
 
-.PHONY	:	all clean fclean re bonus
+.PHONY	:	all clean fclean re bonus libft

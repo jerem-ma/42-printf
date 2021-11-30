@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/22 15:13:14 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/24 18:34:34 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
+#include <stddef.h>
 
-#include "libft.h"
-
-int	ft_printf(const char *format, ...)
+size_t	ft_strlen(const char *s)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	size_t	count;
 
-	va_start(ap, format);
-	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	count = 0;
+	while (*s++)
+		count++;
+	return (count);
 }

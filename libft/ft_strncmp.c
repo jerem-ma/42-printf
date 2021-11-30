@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/23 08:55:25 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 10:14:35 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
+#include <stddef.h>
 
-#include "libft.h"
-
-int	ft_printf(const char *format, ...)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	size_t				i;
+	const unsigned char	*u_s1;
+	const unsigned char	*u_s2;
 
-	va_start(ap, format);
+	u_s1 = (const unsigned char *) s1;
+	u_s2 = (const unsigned char *) s2;
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (u_s1[i] && i < n)
+	{
+		if (u_s1[i] != u_s2[i])
+			return (u_s1[i] - u_s2[i]);
+		i++;
+	}
+	if (i < n)
+		return (u_s1[i] - u_s2[i]);
+	else
+		return (0);
 }

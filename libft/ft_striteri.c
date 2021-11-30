@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/24 14:55:43 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 21:16:07 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
 #include "libft.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	unsigned int	i;
 
-	va_start(ap, format);
+	if (s == 0)
+		return ;
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (i < ft_strlen(s))
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

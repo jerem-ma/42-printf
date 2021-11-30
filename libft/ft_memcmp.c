@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/23 09:04:55 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/24 18:27:35 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
+#include <stddef.h>
 #include "libft.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	va_list				ap;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 	unsigned int		i;
-	t_infinite_string	*output_line;
 
-	va_start(ap, format);
+	str1 = s1;
+	str2 = s2;
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
 }

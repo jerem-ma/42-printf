@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/24 15:52:54 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 21:14:38 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_printf(const char *format, ...)
+t_list	*ft_lstnew(void *content)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	t_list	*elem;
 
-	va_start(ap, format);
-	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	elem = malloc(sizeof(*elem));
+	if (elem == 0)
+		return (0);
+	elem->content = content;
+	elem->next = 0;
+	return (elem);
 }

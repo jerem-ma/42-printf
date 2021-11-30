@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/22 15:15:54 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/24 18:01:17 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
+#include <stddef.h>
 
-#include "libft.h"
-
-int	ft_printf(const char *format, ...)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	char	*cur;
+	size_t	i;
 
-	va_start(ap, format);
+	cur = s;
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (i++ < n)
+	{
+		*cur = c;
+		cur++;
+	}
+	return (s);
 }

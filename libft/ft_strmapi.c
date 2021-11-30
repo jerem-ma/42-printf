@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/24 14:48:30 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 21:14:17 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_printf(const char *format, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	size_t			len_s;
+	char			*mapped;
+	unsigned int	i;
 
-	va_start(ap, format);
+	len_s = ft_strlen(s);
+	mapped = malloc(sizeof(*mapped) * (len_s + 1));
+	if (mapped == 0)
+		return (0);
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (i < len_s)
+	{
+		mapped[i] = f(i, s[i]);
+		i++;
+	}
+	mapped[i] = 0;
+	return (mapped);
 }

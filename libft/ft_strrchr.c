@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/23 08:51:12 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 10:08:11 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
-#include "libft.h"
-
-int	ft_printf(const char *format, ...)
+char	*ft_strrchr(const char *s, int c)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	char	*last_found;
+	int		i;
 
-	va_start(ap, format);
+	last_found = 0;
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	while (s[i])
+	{
+		if (s[i] == (char) c)
+			last_found = (char *)s + i;
+		i++;
+	}
+	if (c == 0)
+		last_found = (char *)s + i;
+	return (last_found);
 }

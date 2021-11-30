@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Created: 2021/11/23 09:09:55 by jmaia             #+#    #+#             */
+/*   Updated: 2021/11/25 11:26:52 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
+#include <stddef.h>
 
-#include "libft.h"
-
-int	ft_printf(const char *format, ...)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	va_list				ap;
-	unsigned int		i;
-	t_infinite_string	*output_line;
+	size_t	i;
+	int		i_little;
 
-	va_start(ap, format);
 	i = 0;
-	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
-	va_end(ap);
+	i_little = 0;
+	while (i < len && little[i_little] && big[i])
+	{
+		i_little = 0;
+		while (i + i_little < len && big[i + i_little] == little[i_little]
+			&& big[i + i_little])
+			i_little++;
+		if (little[i_little])
+			i++;
+	}
+	if (little[i_little])
+		return (0);
+	return ((char *)&big[i]);
 }
