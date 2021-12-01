@@ -1,6 +1,6 @@
-SRCS		=	$(addprefix srcs/,replace.c)
+SRCS		=	ft_printf.c
 
-SRCS_BONUS	=	$(addprefix srcs/bonus/,replace2.c)
+SRCS_BONUS	=
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -20,7 +20,7 @@ build/%.o	:	srcs/%.c
 build	:
 	mkdir build
 
-$(NAME)	:	build build/${OBJS}
+$(NAME)	:	build $(addprefix build/,${OBJS})
 	ar rc ${NAME} ${OBJS}
 
 clean	:
