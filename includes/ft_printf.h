@@ -40,4 +40,5 @@ static int			treat_next_char(
 						const char *format, unsigned int *i, va_list ap
 						);
 static t_options	parse(const char *field);
+static int			is_conv(char c);
 #endif
