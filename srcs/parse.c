@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 18:32:32 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/02 18:53:41 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,18 @@ static int	treat_next_char(
 
 static t_options	parse(const char *field)
 {
+	t_options	options;
 
+	init_options(&options);
+	return (options);
+}
+
+static void	init_options(t_options *options)
+{
+	options->flags = 0;
+	options->minimal_field_width = 0;
+	options->data = 0;
+	options->conv = 0;
 }
 
 static int	is_conv(char c)
