@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 19:23:08 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/02 19:41:03 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ static t_options	parse(const char *field)
 	{
 		options.flags &= get_flag_code(field[i]);
 		i++;
+	}
+	while (field[i] && ft_isdigit())
+	{
+
 	}
 	if (is_conv(field[i]))
 		options.conv = field[i];
