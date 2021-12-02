@@ -6,25 +6,30 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/11/30 22:44:16 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/01 15:34:35 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdarg.h>
-
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
 	va_list				ap;
 	unsigned int		i;
-	t_infinite_string	*output_line;
+	t_dynamic_buffer	output_line_buffer;
+	char				*output_line;
+	int					err;
 
+	output_line_buffer = get_buffer(sizeof(char));
 	va_start(ap, format);
 	i = 0;
 	while (format[i])
-		treat_next_char(output_line, format, &i, ap);
-	ft_putstr(get_str(output_line));
+		treat_next_char(&output_line_buffer, format, &i, ap);
+	output_line = get_str(&output_line_buffer);
+	ft_putstr_fd(output_line, 1);
 	va_end(ap);
+	if (err)
+		return (-1);
+	else
+		return (ft_strlen(output_line));
 }
