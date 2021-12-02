@@ -25,9 +25,17 @@
 # include "libft.h"
 # include "libdynamic_buffer.h"
 
+typedef struct s_options
+{
+	unsigned char	flags;
+	int				minimal_field_width;
+	char			*data;
+}	t_options;
+
 int	ft_printf(const char *format, ...);
-int	treat_next_char(
+static int	treat_next_char(
 		t_dynamic_buffer *output_line_buffer, const char *format,
 		unsigned int *i, va_list ap
 		);
+static t_options	parse(const char *field);
 #endif
