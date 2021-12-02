@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:22:32 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 18:31:34 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/02 18:39:07 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_options
 	unsigned char	flags;
 	int				minimal_field_width;
 	char			*data;
+	char			conv;
 }	t_options;
 
 int					ft_printf(const char *format, ...);
