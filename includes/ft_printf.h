@@ -43,4 +43,5 @@ static int			treat_next_char(
 static void			init_options(t_options *options);
 static t_options	parse(const char *field);
 static int			is_conv(char c);
+static int			is_flag(char c);
 #endif
