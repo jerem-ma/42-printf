@@ -1,3 +1,6 @@
 [submodule "libs/libdynamic_buffer"]
 	path = libs/libdynamic_buffer
 	url = git@github.com:jerem-ma/42-libdynamic_buffer.git
+[submodule "libs/libft"]
+	path = libs/libft
+	url = git@github.com:jerem-ma/libft.git
