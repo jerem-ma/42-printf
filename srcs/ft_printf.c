@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 13:50:08 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/02 15:34:48 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,14 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	else
 		return (ft_strlen(output_line));
+}
+
+int	treat_next_char(
+		t_dynamic_buffer *output_line_buffer, const char *format,
+		unsigned int *i, va_list ap
+		)
+{
+	if (format[*i++] != '%')
+		return (append(output_line_buffer, format[i - 1]));
+
 }

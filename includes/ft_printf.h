@@ -26,4 +26,8 @@
 # include "libdynamic_buffer.h"
 
 int	ft_printf(const char *format, ...);
+int	treat_next_char(
+		t_dynamic_buffer *output_line_buffer, const char *format,
+		unsigned int *i, va_list ap
+		);
 #endif
