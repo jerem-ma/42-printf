@@ -6,11 +6,11 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 18:53:41 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/02 19:23:08 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "parse.h"
 
 static int	treat_next_char(
 		t_dynamic_buffer *output_line_buffer, const char *format,
@@ -20,14 +20,25 @@ static int	treat_next_char(
 	t_options	options;
 
 	if (format[*i++] != '%')
-		return (append(output_line_buffer, format[i - 1]));
+		return (append(output_line_buffer, (void *) &format[*i - 1]));
 }
 
 static t_options	parse(const char *field)
 {
 	t_options	options;
+	int			i;
 
 	init_options(&options);
+	i = 0;
+	while (field[i] && is_flag(field[i]))
+	{
+		options.flags &= get_flag_code(field[i]);
+		i++;
+	}
+	if (is_conv(field[i]))
+		options.conv = field[i];
+	else
+		options.flags = FLAG_ERROR;
 	return (options);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:22:32 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 18:57:04 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/02 19:30:04 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,8 @@
 # include "libft.h"
 # include "libdynamic_buffer.h"
 
-typedef struct s_options
-{
-	unsigned char	flags;
-	int				minimal_field_width;
-	char			*data;
-	char			conv;
-}	t_options;
+# include "parse.h"
 
 int					ft_printf(const char *format, ...);
-static int			treat_next_char(
-						t_dynamic_buffer *output_line_buffer,
-						const char *format, unsigned int *i, va_list ap
-						);
-static void			init_options(t_options *options);
-static t_options	parse(const char *field);
 static int			is_conv(char c);
-static int			is_flag(char c);
 #endif
