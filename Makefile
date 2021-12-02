@@ -17,22 +17,29 @@ all		:	$(NAME)
 build/%.o	:	srcs/%.c
 	cc ${CFLAGS} -I ${INCLUDE} -c $< -o $@
 
-libft	:
-	make -C libft/
+libs	:
+	make -C libs/libft
+	make -C libs/libdynamic_buffer
 
 build	:
 	mkdir build
 
-$(NAME)	:	build libft $(addprefix build/,${OBJS})
-	ar rcl libft/libft.a ${NAME} ${OBJS}
+$(NAME)	:	build libs $(addprefix build/,${OBJS})
+	ar rc ${NAME} ${OBJS}
 
-clean	:
+clean	: cleanlibs
 	rm -Rf build/
-	make -C libft/ clean
 
-fclean	:	clean
+cleanlibs	:
+	make -C libs/libft clean
+	make -C libs/libdynamic_buffer clean
+
+fclean	:	fcleanlibs clean
 	rm -f ${NAME}
-	make -C libft/ fclean
+
+fcleanlibs	:
+	make -C libs/libft fclean
+	make -C libs/libdynamic_buffer fclean
 
 re		:	fclean	${NAME}
 	make -C libft/ re
@@ -40,4 +47,4 @@ re		:	fclean	${NAME}
 bonus	:	$(NAME) $(OBJS_BONUS)
 	ar r $(NAME) $(OBJS_BONUS)
 
-.PHONY	:	all clean fclean re bonus libft
+.PHONY	:	all clean fclean re bonus libs
