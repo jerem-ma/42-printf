@@ -6,11 +6,11 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:05:28 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:10:36 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 10:30:26 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format_utils.c"
+#include "format_utils.h"
 
 void	init_options(t_options *options)
 {

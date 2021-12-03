@@ -6,11 +6,11 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:04:31 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:28:17 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 10:30:38 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse_field.c"
+#include "parse_field.h"
 
 t_options	parse_field(const char *field, int *i)
 {
