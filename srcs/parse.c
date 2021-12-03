@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 12:14:00 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 12:35:08 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ int	treat_next_char(
 	if (options.conv == 'c')
 		return (conv_c(output_line_buffer, &options, va_arg(ap, int)));
 	if (options.conv == 's')
-		return (conv_s(&output_line_buffer, options, va_arg(ap, const char *)));
+		return (conv_s(output_line_buffer, &options, va_arg(ap, const char *)));
 	if (options.conv == 'p')
-		return (conv_p(&output_line_buffer, options, va_arg(ap, void *)));
+		return (conv_p(output_line_buffer, &options, va_arg(ap, void *)));
 	if (options.conv == 'd' || options.conv == 'i')
-		return (conv_d(&output_line_buffer, options, va_arg(ap, int)));
+		return (conv_d(output_line_buffer, &options, va_arg(ap, int)));
 	if (options.conv == 'u')
-		return (conv_u(&output_line_buffer, options, va_arg(ap, unsigned int)));
+		return (conv_u(output_line_buffer, &options, va_arg(ap, unsigned int)));
 	if (options.conv == 'x')
-		return (conv_x(&output_line_buffer, options, va_arg(ap, unsigned int)));
+		return (conv_x(output_line_buffer, &options, va_arg(ap, unsigned int)));
 	if (options.conv == 'X')
-		return (conv_X(&output_line_buffer, options, va_arg(ap, unsigned int)));
+		return (conv_X(output_line_buffer, &options, va_arg(ap, unsigned int)));
 	if (options.conv == '%')
-		return (conv_percent(&output_line_buffer, options, 0));
+		return (conv_percent(output_line_buffer, &options));
 	return (1);
 }

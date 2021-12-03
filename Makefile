@@ -25,7 +25,7 @@ build	:
 	mkdir build
 
 $(NAME)	:	build libs $(addprefix build/,${OBJS})
-	ar rc ${NAME} ${OBJS}
+	ar rc ${NAME} $(addprefix build/,${OBJS})
 
 clean	: cleanlibs
 	rm -Rf build/

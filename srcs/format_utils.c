@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:05:28 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:30:26 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 12:33:07 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_options(t_options *options)
 {
 	options->flags = 0;
 	options->minimal_field_width = 0;
-	options->data = 0;
+	options->precision = 0;
 	options->conv = 0;
 }
 

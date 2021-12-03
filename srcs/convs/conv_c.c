@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_d.h                                           :+:      :+:    :+:   */
+/*   conv_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 11:55:57 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 12:26:00 by jmaia            ###   ########.fr       */
+/*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
+/*   Updated: 2021/12/03 12:18:40 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONV_D_H
-# define CONV_D_H
+#include "conv_c.h"
 
-# include "types.h"
-# include "libdynamic_buffer.h"
+int	conv_c(t_dynamic_buffer *output_line_buffer, t_options *options, int param)
+{
+	unsigned char		c;
+	const unsigned char	*raw_data;
 
-int	conv_d(t_dynamic_buffer *output_line, t_options *options, int param);
-#endif
+	c = (unsigned char) param;
+	raw_data = malloc(sizeof(*raw_data) * 2);
+	if (!raw_data)
+		return (1);
+	raw_data[0] = c;
+	raw_data[1] = 0;
+	return (apply_general_options(output_line_buffer, options, raw_data));
+}
