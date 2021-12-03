@@ -1,4 +1,7 @@
-SRCS		=	parse.c flags.c format_utils.c parse_field.c ft_printf.c 
+SRCS		=	convs/conv_c.c convs/conv_d.c convs/conv_general.c \
+				convs/conv_percent.c convs/conv_s.c convs/conv_u.c \
+				convs/conv_x.c convs/conv_xx.c flags.c format_utils.c \
+				parse_field.c parse.c ft_printf.c 
 
 SRCS_BONUS	=
 
@@ -15,16 +18,16 @@ INCLUDE		=	includes/
 all		:	$(NAME)
 
 build/%.o	:	srcs/%.c
+	if [ ! -d $(dir $@) ]; then\
+		mkdir -p $(dir $@);\
+	fi
 	cc ${CFLAGS} -I ${INCLUDE} -c $< -o $@
 
 libs	:
 	make -C libs/libft
 	make -C libs/libdynamic_buffer
 
-build	:
-	mkdir build
-
-$(NAME)	:	build libs $(addprefix build/,${OBJS})
+$(NAME)	:	libs $(addprefix build/,${OBJS})
 	ar rc ${NAME} $(addprefix build/,${OBJS})
 
 clean	: cleanlibs
