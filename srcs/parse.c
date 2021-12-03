@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:05:21 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 10:29:12 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ static int	treat_next_char(
 
 	if (format[*i++] != '%')
 		return (append(output_line_buffer, (void *) &format[*i - 1]));
+	options = parse(format, i);
 }

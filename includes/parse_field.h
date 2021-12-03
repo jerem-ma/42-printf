@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:21:52 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:23:54 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 10:27:33 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "types.h"
 
-t_options	parse(const char *field);
+t_options	parse(const char *field, int *i);
 void		parse_flags(t_options *options, const char *field, int *i);
 void		parse_minimal_field_width(t_options *options, const char *field,
 			int *i);

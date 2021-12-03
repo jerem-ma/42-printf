@@ -6,24 +6,22 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:04:31 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:25:41 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 10:28:17 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_field.c"
 
-t_options	parse_field(const char *field)
+t_options	parse_field(const char *field, int *i)
 {
 	t_options	options;
-	int			i;
 
 	init_options(&options);
-	i = 0;
-	parse_flags(&options, field, &i);
-	parse_minimal_field_width(&options, field, &i);
-	parse_precision(&options, field, &i);
-	if (is_conv(field[i]))
-		options.conv = field[i];
+	parse_flags(&options, field, i);
+	parse_minimal_field_width(&options, field, i);
+	parse_precision(&options, field, i);
+	if (is_conv(field[*i]))
+		options.conv = field[*i];
 	else
 		options.flags = FLAG_ERROR;
 	return (options);
