@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   format_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:05:21 by jmaia            ###   ########.fr       */
+/*   Created: 2021/12/03 10:05:28 by jmaia             #+#    #+#             */
+/*   Updated: 2021/12/03 10:10:36 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "format_utils.c"
 
-static int	treat_next_char(
-		t_dynamic_buffer *output_line_buffer, const char *format,
-		unsigned int *i, va_list ap
-		)
+void	init_options(t_options *options)
 {
-	t_options	options;
+	options->flags = 0;
+	options->minimal_field_width = 0;
+	options->data = 0;
+	options->conv = 0;
+}
 
-	if (format[*i++] != '%')
-		return (append(output_line_buffer, (void *) &format[*i - 1]));
+int	is_conv(char c)
+{
+	return (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
+		|| c == 'u' || c == 'x' || c == 'X' || c == '%');
 }

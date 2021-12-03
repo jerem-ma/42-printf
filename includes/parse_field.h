@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_field.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 10:05:21 by jmaia            ###   ########.fr       */
+/*   Created: 2021/12/03 10:21:52 by jmaia             #+#    #+#             */
+/*   Updated: 2021/12/03 10:23:54 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#ifndef PARSE_FIELD_H
+# define PARSE_FIELD_H
 
-static int	treat_next_char(
-		t_dynamic_buffer *output_line_buffer, const char *format,
-		unsigned int *i, va_list ap
-		)
-{
-	t_options	options;
+# include "types.h"
 
-	if (format[*i++] != '%')
-		return (append(output_line_buffer, (void *) &format[*i - 1]));
-}
+t_options	parse(const char *field);
+void		parse_flags(t_options *options, const char *field, int *i);
+void		parse_minimal_field_width(t_options *options, const char *field,
+			int *i);
+void		parse_precision(t_options *options, const char *fied, int *i);
+void		skip_atoied_number(const char *field, int *i);
+#endif
