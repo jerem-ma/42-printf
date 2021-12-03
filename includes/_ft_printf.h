@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   _ft_printf.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 11:33:46 by jmaia            ###   ########.fr       */
+/*   Created: 2021/12/03 11:23:11 by jmaia             #+#    #+#             */
+/*   Updated: 2021/12/03 11:29:56 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#ifndef _FT_PRINTF_H
+# define _FT_PRINTF_H
 
-int	treat_next_char(
-		t_dynamic_buffer *output_line_buffer, const char *format,
-		unsigned int *i, va_list ap
-		)
-{
-	t_options	options;
+# include <unistd.h>
+# include <stdarg.h>
 
-	if (format[*i++] != '%')
-		return (append(output_line_buffer, (void *) &format[*i - 1]));
-	options = parse(format, i);
-	return (0);
-}
+# include "libft.h"
+# include "libdynamic_buffer.h"
+
+# include "parse.h"
+
+# include "ft_printf.h"
+#endif

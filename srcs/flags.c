@@ -6,11 +6,11 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 18:59:54 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/02 19:21:05 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 11:25:54 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "flags.h"
 
 int	is_flag(char c)
 {
