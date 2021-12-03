@@ -41,8 +41,11 @@ fcleanlibs	:
 	make -C libs/libft fclean
 	make -C libs/libdynamic_buffer fclean
 
-re		:	fclean	${NAME}
-	make -C libft/ re
+relibs	:
+	make -C libs/libft/ re
+	make -C libs/libdynamic_buffer re
+
+re		:	relibs fclean ${NAME}
 
 bonus	:	$(NAME) $(OBJS_BONUS)
 	ar r $(NAME) $(OBJS_BONUS)
