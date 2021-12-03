@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:50:47 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 12:32:54 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 14:15:55 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "conv_d.h"
 # include "conv_u.h"
 # include "conv_x.h"
-# include "conv_XX.h"
+# include "conv_xx.h"
 # include "conv_percent.h"
 
 #endif
