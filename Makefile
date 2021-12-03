@@ -1,4 +1,4 @@
-SRCS		=	ft_printf.c parse.c flags.c
+SRCS		=	ft_printf.c parse.c flags.c format_utils.c parse_field.c
 
 SRCS_BONUS	=
 
