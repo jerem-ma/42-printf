@@ -1,7 +1,7 @@
 SRCS		=	convs/conv_c.c convs/conv_d.c convs/conv_general.c \
-				convs/conv_percent.c convs/conv_s.c convs/conv_u.c \
-				convs/conv_x.c convs/conv_xx.c flags.c format_utils.c \
-				parse_field.c parse.c ft_printf.c 
+				convs/conv_p.c convs/conv_percent.c convs/conv_s.c \
+				convs/conv_u.c convs/conv_x.c convs/conv_xx.c flags.c \
+				format_utils.c parse_field.c parse.c ft_printf.c 
 
 SRCS_BONUS	=
 
