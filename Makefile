@@ -18,7 +18,7 @@ INCLUDE		=	includes/
 all		:	$(NAME)
 
 build/%.o	:	srcs/%.c
-	if [ ! -d $(dir $@) ]; then\
+	@if [ ! -d $(dir $@) ]; then\
 		mkdir -p $(dir $@);\
 	fi
 	cc ${CFLAGS} -I ${INCLUDE} -c $< -o $@

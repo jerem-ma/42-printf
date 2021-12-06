@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 12:29:05 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 13:57:43 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	conv_d(t_dynamic_buffer *output_line_buffer, t_options *options, int param)
 	return (apply_general_options(output_line_buffer, options, raw_data));
 }
 
-static unsigned char	*append_left_char(char left_char, const char *str)
+unsigned char	*append_left_char(char left_char, const char *str)
 {
 	unsigned char	*final;
 
