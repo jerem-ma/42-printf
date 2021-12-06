@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:04:31 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 19:24:23 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 20:42:01 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ t_options	parse_field(const char *field, int *i)
 		options.conv = field[(*i)++];
 	else
 		options.flags = FLAG_ERROR;
+	if (has_flag(options.flags, FLAG_PRECISION)
+		&& has_flag(options.flags, FLAG_0_PAD))
+		options.flags &= ~FLAG_0_PAD;
 	return (options);
 }
 

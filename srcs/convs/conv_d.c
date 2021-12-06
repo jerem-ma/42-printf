@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 15:13:20 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 20:46:37 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	conv_d(t_dynamic_buffer *output_line_buffer, t_options *options, int param)
 	raw_data = (unsigned char *) ft_itoa(param);
 	if (!raw_data)
 		return (1);
-	left_char = has_flag(options->flags, FLAG_ALWAYS_SIGN) * '+';
-	left_char += !left_char * has_flag(options->flags, FLAG_BLANK) * ' ';
+	left_char = !!has_flag(options->flags, FLAG_ALWAYS_SIGN) * '+';
+	left_char += !left_char * !!has_flag(options->flags, FLAG_BLANK) * ' ';
 	if (left_char)
 	{
 		err = append_left_char(left_char, &raw_data);
