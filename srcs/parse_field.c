@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:04:31 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 12:44:09 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 19:24:23 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_options	parse_field(const char *field, int *i)
 	parse_minimal_field_width(&options, field, i);
 	parse_precision(&options, field, i);
 	if (is_conv(field[*i]))
-		options.conv = field[*i];
+		options.conv = field[(*i)++];
 	else
 		options.flags = FLAG_ERROR;
 	return (options);

@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 19:22:28 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 17:43:24 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 19:12:59 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "parse_field.h"
 
 int			treat_next_char(
-				t_dynamic_buffer *output_line_buffer,
+				t_dynamic_buffer *output_line,
 				const char *format, unsigned int *i, va_list ap
 				);
 #endif

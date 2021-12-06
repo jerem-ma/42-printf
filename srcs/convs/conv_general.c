@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 16:46:50 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 18:24:06 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	append_str(t_dynamic_buffer *output_line_buffer, const unsigned char *str)
 	i = 0;
 	err = 0;
 	while (!err && str[i])
-		err = append(output_line_buffer, (void *)&str[i]);
+		err = append(output_line_buffer, (void *)&str[i++]);
 	return (err);
 }
 
