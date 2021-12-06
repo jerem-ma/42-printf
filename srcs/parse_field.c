@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:04:31 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 12:44:09 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 15:56:02 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	parse_flags(t_options *options, const char *field, int *i)
 		options->flags |= get_flag_code(field[*i]);
 		(*i)++;
 	}
+	if (has_flag(options->flags, FLAG_PRECISION)
+		&& has_flag(options->flags, FLAG_0_PAD))
+		options->flags &= ~FLAG_0_PAD;
 }
 
 void	parse_minimal_field_width(t_options *options, const char *field, int *i)
