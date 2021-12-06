@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 14:01:22 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 18:07:37 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	treat_next_char(
 {
 	t_options	options;
 
-	if (format[*i++] != '%')
+	if (format[(*i)++] != '%')
 		return (append(output_line_buffer, (void *) &format[*i - 1]));
-	options = parse(format, i);
+	options = parse_field(format, (int *) i);
 	if (options.conv == 'c')
 		return (conv_c(output_line_buffer, &options, va_arg(ap, int)));
 	if (options.conv == 's')
