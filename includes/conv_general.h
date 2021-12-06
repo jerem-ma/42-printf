@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 12:19:23 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 14:27:44 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 16:24:42 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	apply_general_options(t_dynamic_buffer *output_line_buffer,
 		t_options *options, const unsigned char *raw_data);
 
 int	apply_minimal_field_width(t_dynamic_buffer *output_line_buffer,
+		t_options *options, unsigned char *raw_data);
+
+int	apply_minimal_field_width_number(t_dynamic_buffer *output_line_buffer,
 		t_options *options, unsigned char *raw_data);
 
 int	apply_number_precision(t_options *options, unsigned char **raw_data);

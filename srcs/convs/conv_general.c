@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 14:28:28 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 16:17:25 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ int	apply_minimal_field_width(t_dynamic_buffer *output_line_buffer,
 	while (!err && i++ < n_spaces)
 		err = append(output_line_buffer, &filler);
 	return (err);
+}
+
+int	apply_minimal_field_width_number(t_dynamic_buffer *output_line_buffer,
+		t_options *options, unsigned char *raw_data)
+{
+	if (has_flag(options->flags, FLAG_PRECISION)
+		&& has_flag(options->flags, FLAG_0_PAD))
+		options->flags &= ~FLAG_0_PAD;
+	return (apply_minimal_field_width(output_line_buffer, options, raw_data));
 }
 
 int	apply_number_precision(t_options *options, unsigned char **raw_data)
