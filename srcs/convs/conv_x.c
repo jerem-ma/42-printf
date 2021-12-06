@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 12:45:09 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 14:01:37 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	conv_x(t_dynamic_buffer *output_line_buffer, t_options *options,
 		unsigned int param)
 {
-	unsigned char *raw_nbr;
+	unsigned char	*raw_nbr;
 	unsigned char	*raw_data;
-	size_t				raw_nbr_size;
+	size_t			raw_nbr_size;
 
 	raw_nbr = ft_itoa_base(param, "0123456789abcdef");
 	raw_nbr_size = ft_strlen((const char *) raw_nbr) + 1;

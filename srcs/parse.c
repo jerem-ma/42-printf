@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:43:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 14:16:08 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 14:01:22 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	treat_next_char(
 	if (options.conv == 'x')
 		return (conv_x(output_line_buffer, &options, va_arg(ap, unsigned int)));
 	if (options.conv == 'X')
-		return (conv_xx(output_line_buffer, &options, va_arg(ap, unsigned int)));
+		return (conv_xx(output_line_buffer,
+				&options, va_arg(ap, unsigned int)));
 	if (options.conv == '%')
 		return (conv_percent(output_line_buffer, &options));
 	return (1);

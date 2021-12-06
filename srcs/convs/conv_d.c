@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 13:57:43 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 14:01:05 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	conv_d(t_dynamic_buffer *output_line_buffer, t_options *options, int param)
 	left_char += !left_char * has_flag(options->flags, FLAG_BLANK);
 	if (left_char)
 	{
-		raw_data = (append_left_char(left_char, (const char *) (raw_nbr)));
+		raw_data = (append_left_char(left_char, (const char *)(raw_nbr)));
 		free(raw_nbr);
 		if (!raw_data)
 			return (1);
