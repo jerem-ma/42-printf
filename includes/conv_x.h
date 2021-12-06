@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:55:57 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 12:45:27 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 14:56:04 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@
 
 int	conv_x(t_dynamic_buffer *output_line, t_options *options,
 		unsigned int param);
+int	apply_alternate_form(t_options *options,
+		unsigned char **raw_data);
 #endif

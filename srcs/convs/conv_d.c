@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 14:01:05 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 15:13:20 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,43 @@
 
 int	conv_d(t_dynamic_buffer *output_line_buffer, t_options *options, int param)
 {
-	unsigned char	*raw_nbr;
 	unsigned char	*raw_data;
 	char			left_char;
+	int				err;
 
-	raw_nbr = (unsigned char *) ft_itoa(param);
-	if (!raw_nbr)
+	raw_data = (unsigned char *) ft_itoa(param);
+	if (!raw_data)
 		return (1);
 	left_char = has_flag(options->flags, FLAG_ALWAYS_SIGN) * '+';
-	left_char += !left_char * has_flag(options->flags, FLAG_BLANK);
+	left_char += !left_char * has_flag(options->flags, FLAG_BLANK) * ' ';
 	if (left_char)
 	{
-		raw_data = (append_left_char(left_char, (const char *)(raw_nbr)));
-		free(raw_nbr);
-		if (!raw_data)
+		err = append_left_char(left_char, &raw_data);
+		if (err)
+		{
+			free(raw_data);
 			return (1);
+		}
 	}
-	else
-		raw_data = raw_nbr;
+	err = apply_number_precision(options, &raw_data);
+	if (err)
+	{
+		free(raw_data);
+		return (1);
+	}
 	return (apply_general_options(output_line_buffer, options, raw_data));
 }
 
-unsigned char	*append_left_char(char left_char, const char *str)
+int	append_left_char(char left_char, unsigned char **str)
 {
 	unsigned char	*final;
 
-	final = malloc(sizeof(*final) * (ft_strlen(str) + 2));
+	final = malloc(sizeof(*final) * (ft_strlen((const char *)*str) + 2));
 	if (!final)
-		return (0);
+		return (1);
 	final[0] = left_char;
-	ft_memcpy(final + 1, str, ft_strlen(str) + 1);
-	return (final);
+	ft_memcpy(final + 1, *str, ft_strlen((const char *)*str) + 1);
+	free((void *)(*str));
+	*str = final;
+	return (0);
 }
