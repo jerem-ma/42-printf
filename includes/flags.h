@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 19:22:38 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 11:26:35 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 12:36:10 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@
 
 int			get_flag_code(char c);
 int			is_flag(char c);
+int			has_flag(int flags, int flag);
 #endif

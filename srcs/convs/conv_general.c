@@ -6,17 +6,17 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 15:59:58 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 12:37:20 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conv_general.h"
 
-int	apply_general_options(t_dynamic_buffer *output_line_buffer,
-		t_options *options, const unsigned char *raw_data)
-{
-	
-}
+//int	apply_general_options(t_dynamic_buffer *output_line_buffer,
+//		t_options *options, const unsigned char *raw_data)
+//{
+//	
+//}
 
 int	apply_minimal_field_width(t_dynamic_buffer *output_line_buffer,
 		t_options *options, const unsigned char *raw_data)
@@ -27,7 +27,7 @@ int	apply_minimal_field_width(t_dynamic_buffer *output_line_buffer,
 	char	filler;
 	int		err;
 
-	len_raw_data = ft_strlen(raw_data);
+	len_raw_data = ft_strlen((char *) raw_data);
 	n_spaces = options->minimal_field_width - len_raw_data;
 	n_spaces *= (n_spaces > 0);
 	i = 0;
