@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 13:27:53 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 13:56:01 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	apply_number_precision(t_options *options, unsigned char **raw_data)
 	int				i;
 	unsigned char	*new_data;
 
-	n_digits = ft_strlen((char *) *raw_data) - ((*raw_data)[0] == '-');
+	n_digits = ft_strlen((char *) *raw_data) - !ft_isdigit((*raw_data)[0]);
 	n_zeros = options->precision - n_digits;
 	n_zeros *= n_zeros > 0;
 	if (!n_zeros)
@@ -85,9 +85,9 @@ int	apply_number_precision(t_options *options, unsigned char **raw_data)
 		ft_strlen((char *) *raw_data) + 1);
 	i = 0;
 	while (i < n_zeros)
-		new_data[(*(raw_data)[0] == '-') + i++] = '0';
-	if (*(raw_data)[0] == '-')
-		new_data[0] = '-';
+		new_data[!ft_isdigit((*raw_data)[0]) + i++] = '0';
+	if (!ft_isdigit((*raw_data)[0]))
+		new_data[0] = (*raw_data)[0];
 	free(*raw_data);
 	*raw_data = new_data;
 	return (0);
