@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 10:42:33 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 13:27:53 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,13 @@ int	apply_number_precision(t_options *options, unsigned char **raw_data)
 				+ n_zeros + 1));
 	if (!new_data)
 		return (1);
-	ft_memcpy(new_data + (*(raw_data)[0] == '-') + n_zeros, *raw_data,
+	ft_memcpy(new_data + n_zeros, *raw_data,
 		ft_strlen((char *) *raw_data) + 1);
 	i = 0;
 	while (i < n_zeros)
-		new_data[i++] = '0';
+		new_data[(*(raw_data)[0] == '-') + i++] = '0';
 	if (*(raw_data)[0] == '-')
-		new_data[i] = '-';
+		new_data[0] = '-';
 	free(*raw_data);
 	*raw_data = new_data;
 	return (0);
