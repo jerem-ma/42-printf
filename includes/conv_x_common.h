@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:55:57 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 20:23:20 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 18:05:12 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "conv_general.h"
 # include "flags.h"
 # include "types.h"
+# include "annoying_0_flag.h"
 
 int	conv_x_common(t_dynamic_buffer *output_line_buffer, t_options *options,
 		unsigned char *nbr);
