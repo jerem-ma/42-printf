@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 09:38:26 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 11:12:47 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	conv_s(t_dynamic_buffer *output_line_buffer, t_options *options,
 	unsigned char	*raw_data;
 	int				err;
 
-	raw_data = (unsigned char *) ft_strdup(param);
+	if (param == 0)
+		raw_data = (unsigned char *) ft_strdup("(null)");
+	else
+		raw_data = (unsigned char *) ft_strdup(param);
 	if (!raw_data)
 		return (1);
 	err = apply_str_precision(options, &raw_data);
