@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 10:14:32 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 10:42:33 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	apply_general_options_with_len(t_dynamic_buffer *output_line_buffer,
 	err = 0;
 	if (has_flag(options->flags, FLAG_LEFT_ADJUSTED))
 		err = append_str(output_line_buffer, raw_data, len);
-	err += apply_minimal_field_width(output_line_buffer, options,
-			(unsigned char *)raw_data);
+	err += apply_minimal_field_width(output_line_buffer, options, len);
 	if (!has_flag(options->flags, FLAG_LEFT_ADJUSTED))
 		err += append_str(output_line_buffer, raw_data, len);
 	return (err);
@@ -48,15 +47,13 @@ int	append_str(t_dynamic_buffer *output_line_buffer, const unsigned char *str,
 }
 
 int	apply_minimal_field_width(t_dynamic_buffer *output_line_buffer,
-		t_options *options, unsigned char *raw_data)
+		t_options *options, unsigned int len_raw_data)
 {
-	size_t	len_raw_data;
 	int		n_spaces;
 	int		i;
 	char	filler;
 	int		err;
 
-	len_raw_data = ft_strlen((char *) raw_data);
 	n_spaces = options->minimal_field_width - len_raw_data;
 	n_spaces *= (n_spaces > 0);
 	i = 0;
