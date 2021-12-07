@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:04:31 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 20:42:01 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 21:14:00 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_options	parse_field(const char *field, int *i)
 
 void	parse_flags(t_options *options, const char *field, int *i)
 {
-	while (field[*i] && is_flag(field[*i]))
+	while (field[*i] && is_flag(field[*i])
+		&& get_flag_code(field[*i]) != FLAG_PRECISION)
 	{
 		options->flags |= get_flag_code(field[*i]);
 		(*i)++;

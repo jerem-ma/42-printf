@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 15:28:31 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 09:38:26 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	apply_str_precision(t_options *options, unsigned char **raw_data)
 
 	if (!has_flag(options->flags, FLAG_PRECISION))
 		return (0);
-	if (options->precision > (int) ft_strlen((char *)raw_data))
-		new_data_len = ft_strlen((char *)raw_data);
+	if (options->precision > (int) ft_strlen((char *)*raw_data))
+		new_data_len = ft_strlen((char *)*raw_data);
 	else
 		new_data_len = options->precision;
 	new_data = malloc(sizeof(*new_data) * (new_data_len + 1));

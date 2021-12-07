@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 20:40:58 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 21:01:58 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	apply_number_precision(t_options *options, unsigned char **raw_data)
 	int				i;
 	unsigned char	*new_data;
 
-	n_digits = ft_strlen((char *) raw_data) - ((*raw_data)[0] == '-');
+	n_digits = ft_strlen((char *) *raw_data) - ((*raw_data)[0] == '-');
 	n_zeros = options->precision - n_digits;
 	n_zeros *= n_zeros > 0;
 	if (!n_zeros)
