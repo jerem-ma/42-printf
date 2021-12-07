@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:25:14 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 21:01:58 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 10:14:32 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,34 @@
 int	apply_general_options(t_dynamic_buffer *output_line_buffer,
 		t_options *options, const unsigned char *raw_data)
 {
+	return (apply_general_options_with_len(output_line_buffer, options,
+			raw_data, ft_strlen((const char *)raw_data)));
+}
+
+int	apply_general_options_with_len(t_dynamic_buffer *output_line_buffer,
+		t_options *options, const unsigned char *raw_data, unsigned int len)
+{
 	int	err;
 
 	err = 0;
 	if (has_flag(options->flags, FLAG_LEFT_ADJUSTED))
-		err = append_str(output_line_buffer, raw_data);
+		err = append_str(output_line_buffer, raw_data, len);
 	err += apply_minimal_field_width(output_line_buffer, options,
 			(unsigned char *)raw_data);
 	if (!has_flag(options->flags, FLAG_LEFT_ADJUSTED))
-		err += append_str(output_line_buffer, raw_data);
+		err += append_str(output_line_buffer, raw_data, len);
 	return (err);
 }
 
-int	append_str(t_dynamic_buffer *output_line_buffer, const unsigned char *str)
+int	append_str(t_dynamic_buffer *output_line_buffer, const unsigned char *str,
+		unsigned int len)
 {
-	int	i;
-	int	err;
+	unsigned int	i;
+	int				err;
 
 	i = 0;
 	err = 0;
-	while (!err && str[i])
+	while (!err && i < len)
 		err = append(output_line_buffer, (void *)&str[i++]);
 	return (err);
 }

@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 20:46:37 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/07 10:11:33 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ int	conv_d(t_dynamic_buffer *output_line_buffer, t_options *options, int param)
 	left_char += !left_char * !!has_flag(options->flags, FLAG_BLANK) * ' ';
 	if (left_char)
 	{
-		err = append_left_char(left_char, &raw_data);
-		if (err)
+		if (append_left_char(left_char, &raw_data))
 		{
 			free(raw_data);
 			return (1);
 		}
 	}
-	err = apply_number_precision(options, &raw_data);
-	if (err)
+	if (apply_number_precision(options, &raw_data))
 	{
 		free(raw_data);
 		return (1);
 	}
-	return (apply_general_options(output_line_buffer, options, raw_data));
+	err = apply_general_options(output_line_buffer, options, raw_data);
+	free(raw_data);
+	return (err);
 }
 
 int	append_left_char(char left_char, unsigned char **str)
