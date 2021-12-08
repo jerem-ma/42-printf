@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:31:41 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/08 15:12:40 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/08 15:19:09 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	ft_printf(const char *format, ...)
 	}
 	output_line = as_str(&output_line_buffer);
 	ft_put_bytes_fd(output_line, output_line_buffer.i, 1);
-	i = ft_strlen(output_line);
 	free_things(output_line_buffer.buffer, output_line);
-	return (i);
+	return (output_line_buffer.i);
 }

@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/08 15:01:31 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/08 16:00:53 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	conv_p(t_dynamic_buffer *output_line_buffer, t_options *options,
 	int					err;
 
 	ptr = (unsigned long int) param;
-	raw_data = ft_itoa_base(ptr, "0123456789abcdef");
+	raw_data = ft_uitoa_base(ptr, "0123456789abcdef");
 	if (!raw_data)
 		return (1);
 	final_data = malloc(sizeof(*final_data)

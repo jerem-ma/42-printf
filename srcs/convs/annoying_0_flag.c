@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:18:25 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 15:42:24 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/08 15:46:46 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int	annoying_0_flag(t_options *options, unsigned char **raw_data)
 		|| has_flag(options->flags, FLAG_PRECISION))
 		return (0);
 	options->precision = options->minimal_field_width
-		- !ft_isdigit(*(raw_data[0]));
+		- is_sign(*(raw_data[0]));
 	return (apply_number_precision(options, raw_data));
 }

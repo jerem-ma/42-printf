@@ -8,7 +8,7 @@ OBJS_LIBFT				=	ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o \
 				ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o \
 				ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o \
 				ft_putendl_fd.o ft_putnbr_fd.o ft_itoa_base.o ft_isspace.o \
-				ft_put_bytes_fd.o
+				ft_put_bytes_fd.o ft_uitoa_base.o
 
 SRCS		=	convs/is_sign.c convs/conv_c.c convs/conv_d.c \
 				convs/conv_general.c convs/conv_p.c convs/conv_percent.c \
