@@ -28,6 +28,8 @@ CFLAGS		=	-Wall -Werror -Wextra
 
 INCLUDE		=	includes/
 
+export BUILD ?=	$(dir $(abspath $(lastword $(MAKEFILE_LIST))))/build
+
 all		:	$(NAME)
 
 build/%.o	:	srcs/%.c
