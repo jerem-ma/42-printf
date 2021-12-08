@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 18:10:26 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/08 14:05:47 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int	conv_x_common(t_dynamic_buffer *output_line_buffer, t_options *options,
 			return (err);
 		}
 	}
-	err = annoying_0_flag(options, &nbr);
-	if (err)
+	if (annoying_0_flag(options, &nbr))
 	{
 		free((void *)nbr);
 		return (1);
