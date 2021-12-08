@@ -65,7 +65,6 @@ relibs	:
 
 re		:	relibs fclean ${NAME}
 
-bonus	:	$(NAME) $(OBJS_BONUS)
-	ar r $(NAME) $(OBJS_BONUS)
+bonus	:	$(NAME)
 
 .PHONY	:	all clean fclean re bonus
