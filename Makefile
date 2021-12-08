@@ -36,11 +36,13 @@ build/%.o	:	srcs/%.c
 	fi
 	cc ${CFLAGS} -I ${INCLUDE} -c $< -o $@ -g3
 
-libs	:
+libs/libft/libft.a	:
 	make -C libs/libft
+
+libs/libdynamic_buffer/libdynamic_buffer.a	:
 	make -C libs/libdynamic_buffer
 
-$(NAME)	:	libs $(addprefix build/,${OBJS})
+$(NAME)	:	libs/libft/libft.a libs/libdynamic_buffer/libdynamic_buffer.a $(addprefix build/,${OBJS})
 	ar rc ${NAME} $(addprefix build/,${OBJS} ${OBJS_LIBFT} ${OBJS_LIBDYNAMIC_BUFFER})
 
 clean	: cleanlibs
@@ -66,4 +68,4 @@ re		:	relibs fclean ${NAME}
 bonus	:	$(NAME) $(OBJS_BONUS)
 	ar r $(NAME) $(OBJS_BONUS)
 
-.PHONY	:	all clean fclean re bonus libs
+.PHONY	:	all clean fclean re bonus
