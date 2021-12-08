@@ -6,7 +6,7 @@
 #    By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 12:50:34 by jmaia             #+#    #+#              #
-#    Updated: 2021/12/07 17:39:01 by jmaia            ###   ########.fr        #
+#    Updated: 2021/12/08 13:17:23 by jmaia            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,18 +30,23 @@ OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 
 NAME		=	libft.a
 
-CFLAGS		=	-Wall -Werror -Wextra -g3
+CFLAGS		=	-Wall -Werror -Wextra
+
+export BUILD		?=	${PWD}/build
 
 all		:	$(NAME)
 
-.c.o	:
-		cc ${CFLAGS} -c $< -o ${<:.c=.o}
+${BUILD}/%.o	:	%.c
+		cc ${CFLAGS} -c $< -o $@
 
-$(NAME)	:	${OBJS}
-		ar rc ${NAME} ${OBJS}
+${BUILD}	:
+	mkdir ${BUILD}
+
+$(NAME)	:	${BUILD} $(addprefix ${BUILD}/,${OBJS})
+		ar rc ${NAME} $(addprefix ${BUILD}/,${OBJS})
 
 clean	:
-		rm -f ${OBJS} ${OBJS_BONUS}
+		rm -rf ${BUILD}
 
 fclean	:	clean
 		rm -f ${NAME}
@@ -49,6 +54,6 @@ fclean	:	clean
 re		:	fclean	${NAME}
 
 bonus	:	$(NAME) ${OBJS_BONUS}
-	ar r $(NAME) ${OBJS_BONUS}
+	ar r $(NAME) $(addprefix ${BUILD}/,${OBJS_BONUS})
 
 .PHONY	:	all clean fclean re bonus

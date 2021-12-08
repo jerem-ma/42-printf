@@ -6,17 +6,17 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:44:22 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/07 17:40:43 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/08 10:18:21 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	get_length(unsigned int nb, int base)
+int	get_length(long long nb, int base)
 {
-	int	length;
-	unsigned int	temp_count;
+	int			length;
+	long long	temp_count;
 
 	length = 0;
 	temp_count = nb;
@@ -35,10 +35,10 @@ char	get_char(int n, char *base)
 	return (base[n]);
 }
 
-long	power(int x, int pow)
+long long	power(int x, int pow)
 {
-	long	result;
-	int		n;
+	long long	result;
+	int			n;
 
 	result = 1;
 	n = 0;
@@ -49,7 +49,7 @@ long	power(int x, int pow)
 	return (result);
 }
 
-unsigned char	*fill_number(int nb_len, long nb, char *base, int base_len)
+unsigned char	*fill_number(int nb_len, long long nb, char *base, int base_len)
 {
 	int				i;
 	int				digit;
@@ -78,7 +78,7 @@ unsigned char	*fill_number(int nb_len, long nb, char *base, int base_len)
 	return (itoad);
 }
 
-unsigned char	*ft_itoa_base(long nbr, char *base)
+unsigned char	*ft_itoa_base(long long nbr, char *base)
 {
 	int		origin_length;
 	int		length_base;
