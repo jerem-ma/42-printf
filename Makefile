@@ -1,4 +1,4 @@
-SRCS		=	convs/conv_c.c convs/conv_d.c \
+SRCS		=	convs/is_sign.c convs/conv_c.c convs/conv_d.c \
 				convs/conv_general.c convs/conv_p.c convs/conv_percent.c \
 				convs/conv_s.c convs/conv_u.c convs/conv_x.c convs/conv_xx.c \
 				convs/conv_x_common.c flags.c convs/annoying_0_flag.c format_utils.c parse_field.c \
