@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 11:59:30 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 18:20:07 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/08 15:01:31 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	conv_p(t_dynamic_buffer *output_line_buffer, t_options *options,
 	unsigned char		*raw_data;
 	unsigned char		*final_data;
 	unsigned long int	ptr;
+	int					err;
 
 	ptr = (unsigned long int) param;
 	raw_data = ft_itoa_base(ptr, "0123456789abcdef");
@@ -34,5 +35,7 @@ int	conv_p(t_dynamic_buffer *output_line_buffer, t_options *options,
 	free(raw_data);
 	final_data[0] = '0';
 	final_data[1] = 'x';
-	return (apply_general_options(output_line_buffer, options, final_data));
+	err = apply_general_options(output_line_buffer, options, final_data);
+	free(final_data);
+	return (err);
 }
