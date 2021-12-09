@@ -10,11 +10,11 @@ OBJS_LIBFT				=	ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o \
 				ft_putendl_fd.o ft_putnbr_fd.o ft_itoa_base.o ft_isspace.o \
 				ft_put_bytes_fd.o ft_uitoa_base.o
 
-SRCS		=	convs/is_sign.c convs/conv_c.c convs/conv_d.c \
-				convs/conv_general.c convs/conv_p.c convs/conv_percent.c \
-				convs/conv_s.c convs/conv_u.c convs/conv_x.c convs/conv_xx.c \
-				convs/conv_x_common.c flags.c convs/annoying_0_flag.c format_utils.c parse_field.c \
-				convs/annoying_prec0val0.c parse.c ft_printf.c
+SRCS		=	is_sign.c conv_c.c conv_d.c \
+				conv_general.c conv_p.c conv_percent.c \
+				conv_s.c conv_u.c conv_x.c conv_xx.c \
+				conv_x_common.c flags.c annoying_0_flag.c format_utils.c parse_field.c \
+				annoying_prec0val0.c parse.c ft_printf.c
 
 SRCS_BONUS	=
 
