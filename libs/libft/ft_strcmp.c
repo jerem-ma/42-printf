@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:28:04 by jmaia             #+#    #+#             */
-/*   Updated: 2022/01/13 12:09:27 by jmaia            ###   ########.fr       */
+/*   Created: 2022/01/05 18:28:20 by jmaia             #+#    #+#             */
+/*   Updated: 2022/01/06 14:55:46 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <stddef.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+#include "libft.h"
+
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (lst == 0 || *lst == 0)
-		return ;
-	if ((*lst)->next != 0)
-		ft_lstclear(&(*lst)->next, del);
-	if (del)
-		del((*lst)->content);
-	free(*lst);
-	*lst = 0;
+	size_t	l1;
+	size_t	l2;
+
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	if (l1 < l2)
+		return (ft_strncmp(s1, s2, l2 + 1));
+	else
+		return (ft_strncmp(s1, s2, l1 + 1));
 }

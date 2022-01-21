@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:50:43 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/08 15:58:38 by jmaia            ###   ########.fr       */
+/*   Updated: 2022/01/12 17:21:12 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void			ft_put_bytes_fd(char *s, unsigned int len, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 
+int				ft_isint(char *nbr);
+int				ft_isnbr(char *nbr);
+int				ft_strcmp(char *s1, char *s2);
+
 typedef struct s_list
 {
 	void			*content;
@@ -71,4 +75,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+t_list			*ft_lstprevious(t_list *lst, t_list *node);
+t_list			*ft_lstcpy(t_list *lst);
+t_list			*ft_lstsort(t_list *lst, int (*cmp)(void *, void *));
 #endif

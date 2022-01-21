@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstprevious.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:28:04 by jmaia             #+#    #+#             */
-/*   Updated: 2022/01/13 12:09:27 by jmaia            ###   ########.fr       */
+/*   Created: 2022/01/06 12:49:54 by jmaia             #+#    #+#             */
+/*   Updated: 2022/01/06 12:51:54 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstprevious(t_list *lst, t_list *node)
 {
-	if (lst == 0 || *lst == 0)
-		return ;
-	if ((*lst)->next != 0)
-		ft_lstclear(&(*lst)->next, del);
-	if (del)
-		del((*lst)->content);
-	free(*lst);
-	*lst = 0;
+	t_list	*previous;
+	t_list	*cur;
+
+	previous = 0;
+	cur = lst;
+	while (cur->next && cur != node)
+	{
+		previous = cur;
+		cur = cur->next;
+	}
+	if (cur == node)
+		return (previous);
+	return (0);
 }

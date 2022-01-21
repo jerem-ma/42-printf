@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:44:22 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/08 16:04:35 by jmaia            ###   ########.fr       */
+/*   Updated: 2022/01/02 16:07:29 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,10 @@ unsigned char	*ufill_number(int nb_len, unsigned long long nb, char *base,
 	unsigned char	*itoad;
 
 	i = -1;
-	str_len = nb_len + (nb < 0) + 1;
+	str_len = nb_len + 1;
 	itoad = malloc(sizeof(*itoad) * str_len);
 	if (itoad == 0)
 		return (0);
-	if (nb < 0)
-	{
-		itoad[0] = '-';
-		nb *= -1;
-		++i;
-	}
 	while (++i < str_len - 1)
 	{
 		digit = nb / upower(base_len, nb_len - 1);
